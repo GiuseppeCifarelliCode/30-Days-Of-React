@@ -485,3 +485,260 @@ function likeProduct(id) {
 }
 likeProduct("hedfcg")
 console.log(products);
+
+// -------------------------- FUNCTION -----------------------------
+//Level 1
+//1 - Declare a function fullName and it takes firstName, lastName as a parameter and it returns your full - name.
+function fullName(firstName, lastName) {
+  return firstName + " " + lastName
+}
+
+//2 - Declare a function addNumbers and it takes two two parameters and it returns sum.
+function addNumbers(num1, num2) {
+  return num1 + num2
+}
+
+//3 - Area of a circle is calculated as follows: area = π x r x r. Write a function which calculates _areaOfCircle
+function areaOfCircle(r) {
+  return 3.14 * r * r
+}
+
+//4 - Temperature in oC can be converted to oF using this formula: oF = (oC x 9/5) + 32. Write a function which convert oC to oF convertCelciusToFahrenheit.
+function convertCelciusToFahrenheit(C) {
+  return ((C * 9/5) + 32)
+}
+
+//5 - Body mass index(BMI) is calculated as follows: bmi = weight in Kg / (height x height) in m2. Write a function which calculates bmi. BMI is used to broadly define different weight groups in adults 20 years old or older.Check if a person is underweight, normal, overweight or obese based the information given below.
+// The same groups apply to both men and women.
+// Underweight: BMI is less than 18.5
+// Normal weight: BMI is 18.5 to 24.9
+// Overweight: BMI is 25 to 29.9
+// Obese: BMI is 30 or more
+function calculateBMI(weight, height) {
+  const bmi = weight / (height * height)
+  switch(true) {
+    case bmi < 18.5:
+      return ("Underweight")
+
+    case(bmi < 24.9):
+      return "Normal weight"
+
+    case(bmi < 29.9):
+    return "Overweight"
+      
+    case(bmi >= 30):
+    return "Obese"
+  }
+}
+console.log(calculateBMI(72,1.76));
+
+//6 - Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
+function checkSeason(month) {
+  switch(true) {
+    case arrAutumn.includes(month):
+      return "Autumm"
+
+    case arrSpring.includes(month):
+      return "Spring"
+
+    case arrSummer.includes(month):
+      return "Summer"
+
+    case arrWinter.includes(month):
+      return "Winter"
+  }
+}
+
+//Level 2
+//1 - Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation.
+function solveQuadraticEquation(a, b, c) {
+  let resPos = (-b + Math.sqrt(b*b - 4*a*c))/2*a
+  let resNeg = (-b - Math.sqrt(b*b - 4*a*c))/2*a
+  return [resPos, resNeg]
+}
+console.log(solveQuadraticEquation(1,7,12))
+
+//2 - Declare a function name printArray. It takes array as a parameter and it prints out each value of the array.
+function printArray(arr) {
+  arr.forEach(element => {
+    console.log(element);
+  });
+}
+
+//3 - Write a function name showDateTime which shows time in this format: 08/01/2020 04:08 using the Date object.
+function showDateTime() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDay()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  console.log(year + "/" + month + "/" + day + " " + hour + ":" + minute);
+}
+showDateTime()
+
+//4 - Declare a function name swapValues. This function swaps value of x to y.
+function swapValues(x , y) {
+  const a = y
+  const b = x
+  x = a
+  y = b
+}
+
+//5 - Declare a function name reverseArray. It takes array as a parameter and it returns the reverse of the array (don't use method)
+function reverseArray(arr) {
+  let reversedArray = []
+  for(let i = arr.length - 1; i >= 0; i--)
+    reversedArray.push(arr[i])
+  return reversedArray
+}
+
+//6 - Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+function capitalizeArray(arr) {
+  for(let i = 0; i <= arr.length - 1; i++)
+    arr[i].toUpperCase()
+}
+
+let myArray = []
+//7 - Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
+function addItem(item) {
+  myArray.push(item)
+}
+addItem(3)
+console.log("My Array",myArray);
+
+//8 - Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+function removeItem(index) {
+  const count = myArray.length
+  if(index >= count) console.log("Non esiste un elemento in quell'indice");
+  else {
+    myArray.splice(index,1)
+  }
+}
+
+//9 - Declare a function name evensAndOdds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+function evensAndOdds(num) {
+  let countEven = 0
+  let countOdd = 0
+  for(let i = 1; i <= num; i++) {
+    i % 2 === 0 ? countEven++ : countOdd++
+  }
+  console.log("The number of odds are " + countOdd);
+  console.log("The number of evens are " + countEven);
+}
+evensAndOdds(5)
+
+//10 - Write a function which takes any number of arguments and return the sum of the arguments
+function sum(...arg) {
+  let sum = 0
+  for(const element of arg) sum += element
+  return sum
+}
+console.log(sum(1,2,3))
+
+//11 - Declare a function name userIdGenerator. When this function is called it generates seven character id. The function return the id.
+function userIdGenerator(nChar) {
+  let result = ""
+  const character = "abcdefghjklmnopqrstuvwxyz123456789"
+  const characterLength = character.length
+  let counter = 0
+  while(counter < nChar) {
+    result += character.charAt(Math.floor(Math.random() * characterLength));
+    counter++
+  }
+  return result
+}
+console.log(userIdGenerator(7));
+
+//Level 3
+//1 - Declare a function name userIdGeneratedByUser. It doesn’t take any parameter but it takes two inputs using prompt(). One of the input is the number of characters and the second input is the number of ids which are supposed to be generated.
+function userIdGeneratedByUser() {
+const nrChar = prompt("Inserisci il numero di caratteri per le password")
+const nrPw = prompt("Quante password devo generare?")
+for(let i = 0; i < nrPw; i++) {
+  console.log(userIdGenerator(nrChar));
+  }
+}
+//userIdGeneratedByUser()
+
+//2 - Write a function generateColors which can generate any number of hexa or rgb colors.
+function generateColors(type, nrColors) {
+  let arrColors = []
+  if(type.toUpperCase() === 'HEXA') {
+    const character = "abcdefghjklmnopqrstuvwxyz123456789"
+    const characterLength = character.length
+    for(let i = 0; i < nrColors; i++) {
+      let result = ""
+      let counter = 0
+      while(counter < 6) {
+        result += character.charAt(Math.floor(Math.random() * characterLength));
+        counter++
+      }
+      result = "#" + result
+      arrColors.push(result)
+    }
+    console.log(arrColors);
+
+  } else if(type.toUpperCase() === 'RGB') {
+      for(let i = 0; i < nrColors; i++) {
+        let result = ""
+        let counter = 0
+        while(counter < 3) {
+          if(counter === 2) {
+            result += Math.floor(Math.random() * 256)
+          } else result += Math.floor(Math.random() * 256)+ ", ";
+          counter++
+        }
+        result = "rgb(" + result + ")"
+        arrColors.push(result)
+      }
+          console.log(arrColors);
+  } else alert("tipo non riconosciuto")
+}
+generateColors("rgb",4)
+
+//3 - Call your function shuffleArray, it takes an array as a parameter and it returns a shuffled array
+function shuffleArray(myArr) {
+  for (let i = myArr.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [myArr[i], myArr[j]] = [myArr[j], myArr[i]]; 
+  } 
+  return myArr; 
+}
+
+console.log(shuffleArray(["ciao","banana","mela","pera","cioccolato"]))
+
+//4 - Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+function factorial(num) {
+  let result = 1
+  for(let i = 1; i <= num; i++) {
+    result = result * i
+  }
+  return result
+}
+
+console.log(factorial(4));
+
+//5 - Call your function isEmpty, it takes a parameter and it checks if it is empty or not
+function isEmpty(par) {
+  if(par) console.log("Non è vuoto");
+  else console.log("Vuoto");
+}
+isEmpty(0)
+
+//6 - Write a function called average, it takes an array parameter and returns the average of the items. Check if all the array items are number types. If not give return reasonable feedback.
+function average(myArr) {
+  let avg = 0
+  for(let i = 0; i < myArr.length; i++) {
+    if(typeof myArr[i] === 'number') {
+      avg += myArr[i]
+    } else {
+        alert("NaN")
+        return
+      }
+  }
+  avg = avg/myArr.length
+  return avg
+}
+
+console.log(average([2,4,6]))
