@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: cornflowerblue;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+h1,p {
+  color: black;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+  font-size: large;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  background-color: palevioletred;
+  color: white;
+  border-radius: 8px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.skillContainer {
+  display: flex;
+}
+
+.skills {
+  margin: 4px;
+  background-color: palevioletred;
+  padding: 4px;
+  border-radius: 8px;
+}

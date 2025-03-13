@@ -742,3 +742,107 @@ function average(myArr) {
 }
 
 console.log(average([2,4,6]))
+
+// -------------------------- FUNCTIONAL PROGRAMMING -----------------------------
+const products2 = [
+  { product: 'banana', price: 3 },
+  { product: 'mango', price: 6 },
+  { product: 'potato', price: ' ' },
+  { product: 'avocado', price: 8 },
+  { product: 'coffee', price: 10 },
+  { product: 'tea', price: '' },
+]
+
+//1 - Print the price of each product using forEach
+products2.forEach(prod => console.log(prod.price));
+
+//2 - Print the product items as follows using forEach
+products2.forEach(prod => typeof(prod.price) === "number" ? console.log("The price of " + prod.product + " is " + prod.price + " euros") :console.log("The price of " + prod.product + " is unkown")
+)
+
+//3 - Calculate the sum of all the prices using forEach
+let somma = 0
+products2.forEach(prod => typeof(prod.price) === "number" ? somma += prod.price : somma = somma)
+
+//4 - Create an array of prices using map and store it in a variable prices
+let prices = products2.map(prod => prod.price)
+console.log(prices);
+
+//5 - Filter products with prices
+console.log(products2.filter(prod => typeof(prod.price) === "number"))
+
+//6 - Use method chaining to get the sum of the prices(map, filter, reduce)
+somma = products2.map(prod => prod.price).filter(price => typeof(price) === "number").reduce((prod,prod2) => prod + prod2)
+console.log(somma);
+
+//7 - Calculate the sum of all the prices using reduce only
+somma = products2.reduce((sum,item) => {
+const price = parseFloat(item.price) || 0
+return sum + price
+},0)
+console.log(somma);
+
+//8 - Find the first product which doesn't have a price value
+console.log(products2.find((item) => typeof(item.price) !== "number" ));
+
+//9 - Find the index of the first product which does not have price value
+console.log(products2.findIndex(item => typeof(item.price) !== "number"));
+
+//10 - Check if some products do not have a price value
+products2.some(item => typeof(item.price) !== "number")
+
+//11 - Check if all the products have price value
+console.log("Tutti hanno un prezzo?",products2.every(item => typeof(item.price) === "number"))
+
+// -------------------------- CLASSES -----------------------------
+//Level 1
+//1 - Create an Animal class. The class will have name, age, color, legs properties and create different methods
+class Animal {
+  constructor(name, age, color, legs) {
+    this.name = name
+    this.age = age
+    this.color = color
+    this.legs = legs
+  }
+
+  getInfo() {
+    console.log(`I'm ${this.name} of ${this.age} yo`);
+  }
+
+  makeNoise(noise) {
+    console.log(noise);
+  }
+}
+
+//2 - Create a Dog and Cat child class from the Animal Class.
+//Level 2
+//1 - Override the method you create in Animal class
+
+class Dog extends Animal {
+  constructor(name, age, color, legs) {
+    super(name, age, color, legs)
+  }
+
+  makeNoise() {
+    console.log("Woof");
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, age, color, legs) {
+    super(name, age, color, legs)
+  }
+
+  makeNoise() {
+    console.log("Miao");
+  }
+}
+
+let django = new Dog("Django", 4, "Black and White", 4)
+django.getInfo()
+django.makeNoise()
+
+
+
+
+
